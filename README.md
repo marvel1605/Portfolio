@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Marvel Patel — Portfolio Site
 
 A static portfolio site built from Marvel Patel's resume. Plain HTML/CSS/JS —
@@ -81,3 +82,6 @@ every time you `git push` a change.
 - Respects `prefers-reduced-motion` — gauge/counter animations are skipped
   for users who have that OS setting on.
 - No external JS dependencies — only Google Fonts are loaded remotely.
+=======
+# Portfolio
+>>>>>>> 37aab3923ae4ed51bc475e714de7b1aac1a13229
