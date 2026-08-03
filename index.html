@@ -1,315 +1,603 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marvel Patel — Data Analyst</title>
-  <meta name="description"
-    content="Marvel Patel — Data Analyst portfolio. Manufacturing analytics, ETL pipelines, dashboards, and data-driven process improvement.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marvel Patel — Data Analytics &amp; ML</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F2F8FE;
+    --surface: #FFFFFF;
+    --surface-alt: #ECEEFA;
+    --ink: #1E2233;
+    --ink-soft: #5B6178;
+    --line: #DBDEEF;
+    --sage: #3E5FA8;
+    --sage-soft: #E4EAFA;
+    --brass: #7C5CBF;
+    --brass-soft: #EFE7FB;
+    --graphite: #6E7386;
+    --radius: 3px;
+  }
 
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background-color: #F2F8FE;
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    background-image:
+      radial-gradient(ellipse 900px 600px at 5% -10%, rgba(147,197,253,0.38), transparent 60%),
+      radial-gradient(ellipse 800px 650px at 100% 6%, rgba(191,219,254,0.35), transparent 55%),
+      radial-gradient(ellipse 700px 500px at 30% 110%, rgba(219,234,254,0.4), transparent 55%),
+      url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='200'%20height='200'%20viewBox='0%200%20200%20200'%3E%3Cg%20fill='none'%20stroke='%233E5FA8'%20stroke-opacity='0.16'%20stroke-width='1.3'%3E%3Cpath%20d='M0%2040%20H60%20V100%20H140%20V160%20H200'/%3E%3Cpath%20d='M60%200%20V40'/%3E%3Cpath%20d='M140%20100%20V60%20H200'/%3E%3Cpath%20d='M0%20160%20H40%20V200'/%3E%3C/g%3E%3Cg%20fill='%233E5FA8'%20fill-opacity='0.3'%3E%3Ccircle%20cx='60'%20cy='40'%20r='2.6'/%3E%3Ccircle%20cx='60'%20cy='100'%20r='2.6'/%3E%3Ccircle%20cx='140'%20cy='100'%20r='2.6'/%3E%3Ccircle%20cx='140'%20cy='160'%20r='2.6'/%3E%3Ccircle%20cx='140'%20cy='60'%20r='2.2'/%3E%3Ccircle%20cx='40'%20cy='160'%20r='2.2'/%3E%3Ccircle%20cx='60'%20cy='0'%20r='2.2'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: auto, auto, auto, 200px 200px;
+    background-position: 0 0, 0 0, 0 0, -1px -1px;
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+    background-attachment: fixed, fixed, fixed, fixed;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  a{ color: inherit; }
+  .wrap{ max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+  h1,h2,h3{ font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.01em; }
+  .mono{ font-family: 'IBM Plex Mono', monospace; }
+
+  ::selection{ background: var(--sage); color: #fff; }
+
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--sage);
+    outline-offset: 3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(246,244,238,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 32px; max-width: 1080px; margin: 0 auto;
+  }
+  .nav-mark{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size: 1.05rem;
+    text-decoration:none;
+  }
+  .nav-mark .dot{
+    width:9px; height:9px; background: var(--sage); border-radius:50%;
+    box-shadow: 0 0 0 3px var(--sage-soft);
+  }
+  .nav-links{ display:flex; gap: 28px; list-style:none; }
+  .nav-links a{
+    text-decoration:none; font-size: 0.88rem; color: var(--ink-soft);
+    font-family:'IBM Plex Mono', monospace; letter-spacing: 0.02em;
+    padding-bottom: 3px; border-bottom: 1px solid transparent;
+    transition: color .15s, border-color .15s;
+  }
+  .nav-links a:hover{ color: var(--ink); border-color: var(--sage); }
+  .nav-links{ }
+  @media (max-width: 760px){ .nav-links{ display:none; } }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding: 96px 0 88px; }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace; font-size: 0.78rem;
+    color: var(--sage); background: var(--sage-soft);
+    padding: 6px 12px; border-radius: 999px; margin-bottom: 28px;
+  }
+  .eyebrow::before{ content:''; width:6px; height:6px; border-radius:50%; background: var(--sage); }
+
+  .hero h1{
+    font-size: clamp(2.4rem, 5.4vw, 4.1rem);
+    font-weight: 700; line-height: 1.04; max-width: 15ch;
+  }
+  .hero h1 .line2{ color: var(--ink-soft); font-weight: 500; }
+
+  .hero-sub{
+    margin-top: 26px; max-width: 56ch; font-size: 1.08rem; color: var(--ink-soft);
+  }
+  .hero-sub strong{ color: var(--ink); font-weight: 600; }
+
+  .hero-cta{ display:flex; gap:14px; margin-top: 36px; flex-wrap: wrap; }
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size: 0.85rem;
+    padding: 12px 20px; border-radius: var(--radius);
+    text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    border: 1px solid var(--ink); transition: transform .15s, background .15s, color .15s;
+  }
+  .btn-primary{ background: var(--ink); color: #fff; }
+  .btn-primary:hover{ background: var(--sage); border-color: var(--sage); transform: translateY(-2px); }
+  .btn-ghost{ background: transparent; color: var(--ink); }
+  .btn-ghost:hover{ transform: translateY(-2px); border-color: var(--sage); color: var(--sage); }
+
+  /* ---------- SIDE DOT NAV ---------- */
+  .side-nav{
+    position: fixed; right: 26px; top: 50%; transform: translateY(-50%);
+    display:flex; flex-direction:column; gap: 16px; z-index: 40;
+  }
+  .side-nav a{
+    display:flex; align-items:center; justify-content:flex-end; gap:10px;
+    text-decoration:none; position:relative;
+  }
+  .side-nav .dot{
+    width:8px; height:8px; border-radius:50%; background: var(--line);
+    border: 1px solid transparent;
+    transition: background .2s, transform .2s;
+    flex-shrink:0;
+  }
+  .side-nav .label{
+    font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color: var(--ink-soft);
+    white-space:nowrap; background: var(--surface); border: 1px solid var(--line);
+    padding: 4px 10px; border-radius: 999px;
+    opacity:0; transform: translateX(8px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .side-nav a:hover .label, .side-nav a.active .label{ opacity:1; transform: translateX(0); }
+  .side-nav a:hover .dot, .side-nav a.active .dot{ background: var(--sage); transform: scale(1.4); }
+  @media (max-width: 900px){ .side-nav{ display:none; } }
+
+
+  section{ padding: 88px 0; }
+  .section-head{ display:flex; align-items:baseline; gap:16px; margin-bottom: 44px; }
+  .section-head .index{ font-family:'IBM Plex Mono', monospace; color: var(--graphite); font-size:0.85rem; }
+  .section-head h2{ font-size: clamp(1.5rem, 3vw, 2rem); }
+  .section-rule{ flex:1; height:1px; background: var(--line); }
+
+  .reveal{ opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform: translateY(0); }
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline{ position: relative; padding-left: 28px; border-left: 1px solid var(--line); }
+  .job{
+    position: relative; margin-bottom: 28px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 26px 28px; transition: border-color .2s, box-shadow .2s, transform .2s;
+  }
+  .job:hover{ border-color: var(--sage); box-shadow: 0 10px 24px -14px rgba(62,95,168,0.35); transform: translateY(-2px); }
+  .job:last-child{ margin-bottom:0; }
+  .job::before{
+    content:''; position:absolute; left:-33px; top:30px;
+    width:9px; height:9px; border-radius:50%;
+    background: var(--surface); border: 2px solid var(--sage);
+  }
+  .job-top{ display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; }
+  .job-role{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.1rem; }
+  .job-org{ color: var(--sage); font-weight:500; }
+  .job-date{ font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color: var(--ink-soft); white-space:nowrap; }
+  .job-loc{ font-size:0.85rem; color: var(--ink-soft); margin-top:2px; }
+  .job ul{ margin-top: 14px; padding-left: 18px; color: var(--ink-soft); font-size: 0.95rem; }
+  .job li{ margin-bottom: 8px; }
+  .job li strong{ color: var(--ink); font-weight:600; }
+
+  /* ---------- PROJECTS ---------- */
+  .projects{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  @media (max-width: 900px){ .projects{ grid-template-columns: 1fr; } }
+
+  .card{
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 26px; display:flex; flex-direction:column; cursor: pointer;
+    transition: border-color .2s, box-shadow .2s, transform .2s;
+  }
+  .card:hover, .card:focus-visible{
+    border-color: var(--sage); box-shadow: 0 10px 24px -14px rgba(63,107,82,0.4);
+    transform: translateY(-3px);
+  }
+  .card-tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color: var(--brass);
+    background: var(--brass-soft); display:inline-block; padding:4px 9px; border-radius: 999px;
+    margin-bottom: 16px; align-self:flex-start;
+  }
+  .card h3{ font-size: 1.15rem; margin-bottom: 10px; }
+  .card-desc{ color: var(--ink-soft); font-size:0.9rem; flex:1; }
+  .card-stack{ display:flex; flex-wrap:wrap; gap:6px; margin-top:16px; }
+  .card-stack span{
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color: var(--graphite);
+    border: 1px solid var(--line); padding: 3px 8px; border-radius: 999px;
+  }
+  .card-more{
+    margin-top: 18px; max-height:0; overflow:hidden; transition: max-height .35s ease;
+    font-size: 0.87rem; color: var(--ink-soft); border-top: 1px solid transparent;
+  }
+  .card.open .card-more{ max-height: 340px; border-top: 1px dashed var(--line); padding-top:14px; }
+  .card-more ul{ padding-left:18px; }
+  .card-more li{ margin-bottom:8px; }
+  .card-toggle{
+    margin-top:16px; font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    color: var(--sage); display:flex; align-items:center; gap:6px; background:none; border:none; padding:0; cursor:pointer;
+  }
+  .card-toggle .chev{ transition: transform .25s; }
+  .card.open .card-toggle .chev{ transform: rotate(90deg); }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  @media (max-width: 800px){ .skills-grid{ grid-template-columns: 1fr; } }
+  .skill-group h4{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color: var(--sage);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px;
+  }
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .pill{
+    font-size: 0.85rem; padding: 7px 13px; background: var(--surface);
+    border: 1px solid var(--line); border-radius: var(--radius);
+    transition: background .15s, border-color .15s;
+  }
+  .pill:hover{ background: var(--sage-soft); border-color: var(--sage); }
+  .cert-tabs{ display:flex; flex-direction:column; border: 1px solid var(--line); border-radius: var(--radius); overflow:hidden; background: var(--surface); }
+  .cert-tab{
+    display:flex; align-items:center; gap:20px; padding: 20px 24px;
+    border-bottom: 1px solid var(--line); transition: background .15s;
+  }
+  .cert-tab:last-child{ border-bottom:none; }
+  .cert-tab:hover{ background: var(--sage-soft); }
+  .cert-tab-icon{
+    font-size: 0.85rem; color: var(--brass); background: var(--brass-soft);
+    width: 34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .cert-tab h4{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:0.98rem; }
+  .cert-tab-meta{ font-size:0.7rem; color: var(--ink-soft); letter-spacing:0.05em; }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  @media (max-width: 700px){ .edu-grid{ grid-template-columns:1fr; } }
+  .edu-card{ background: var(--surface); border:1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+  .edu-card h3{ font-size: 1.05rem; }
+  .edu-org{ color: var(--sage); font-weight:500; margin-top:2px; }
+  .edu-meta{ margin-top:10px; font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color: var(--ink-soft); }
+
+  /* ---------- LEADERSHIP ---------- */
+  .leader-card{
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 28px; display:flex; gap:22px; align-items:flex-start;
+    transition: border-color .2s, box-shadow .2s, transform .2s;
+  }
+  .leader-card:hover{ border-color: var(--sage); box-shadow: 0 10px 24px -14px rgba(62,95,168,0.35); transform: translateY(-2px); }
+  .leader-mark{
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:1.6rem; color: var(--sage);
+    flex-shrink:0;
+  }
+  .leader-card h3{ font-size:1.05rem; }
+  .leader-card .job-date{ margin-top:2px; }
+  .leader-card p{ margin-top:10px; color: var(--ink-soft); font-size:0.93rem; }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{
+    border-top: 1px solid var(--line); padding: 88px 0 40px; background: var(--surface);
+  }
+  .footer-top{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; }
+  .footer-top h2{ font-size: clamp(1.6rem, 3.4vw, 2.4rem); max-width: 14ch; }
+  .contact-links{ display:flex; flex-direction:column; gap:10px; }
+  .contact-links a{
+    text-decoration:none; font-family:'IBM Plex Mono', monospace; font-size:0.92rem;
+    display:flex; align-items:center; gap:10px; color: var(--ink-soft);
+    transition: color .15s;
+  }
+  .contact-links a:hover{ color: var(--sage); }
+  .contact-links a .k{ color: var(--brass); }
+  .footer-bottom{
+    margin-top: 48px; padding-top: 22px; border-top: 1px solid var(--line);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:0.78rem; color: var(--graphite); font-family:'IBM Plex Mono', monospace;
+  }
+
+  ::-webkit-scrollbar{ width:10px; }
+  ::-webkit-scrollbar-track{ background: var(--bg); }
+  ::-webkit-scrollbar-thumb{ background: var(--line); border-radius:6px; }
+</style>
+</head>
 <body>
 
-  <div class="grid-overlay" aria-hidden="true"></div>
+<header>
+  <div class="nav">
+    <a href="#top" class="nav-mark"><span class="dot"></span> Marvel Patel</a>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
 
-  <header class="topbar">
-    <div class="topbar__inner">
-      <span class="brand">MP<span class="brand__dot">·</span><span class="brand__mono">DA</span></span>
-      <nav class="nav" aria-label="Primary">
-        <a href="#console">Console</a>
-        <a href="#log">Log</a>
-        <a href="#projects">Projects</a>
-        <a href="#instruments">Instruments</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+<nav class="side-nav" aria-label="Section navigation">
+  <a href="#experience"><span class="label">Experience</span><span class="dot"></span></a>
+  <a href="#projects"><span class="label">Projects</span><span class="dot"></span></a>
+  <a href="#skills"><span class="label">Skills</span><span class="dot"></span></a>
+  <a href="#certifications"><span class="label">Certifications</span><span class="dot"></span></a>
+  <a href="#education"><span class="label">Education</span><span class="dot"></span></a>
+  <a href="#leadership"><span class="label">Leadership</span><span class="dot"></span></a>
+  <a href="#contact"><span class="label">Contact</span><span class="dot"></span></a>
+</nav>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="wrap hero">
+    <h1>Marvel Patel</h1>
+    <p class="hero-sub">I'm a Computer Information Systems and Technology Management student who is passionate about solving problems through technology and innovation. I enjoy exploring new technologies, analyzing complex information, and developing solutions that improve efficiency, streamline processes, and support better business decisions.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#projects">View projects →</a>
+      <a class="btn btn-ghost" href="mailto:marvelpatel16@gmail.com">Get in touch</a>
     </div>
-  </header>
+  </div>
 
-  <main>
+  <!-- EXPERIENCE -->
+  <div class="wrap">
+    <section id="experience">
+      <div class="section-head reveal">
+        <span class="index mono">§01</span>
+        <h2>Experience</h2>
+        <div class="section-rule"></div>
+      </div>
 
-    <!-- HERO: CONSOLE -->
-    <section id="console" class="console">
-      <div class="console__frame">
-        <div class="console__label">
-          <span class="status-dot" aria-hidden="true"></span>
-          LIVE READOUT — MP-01
+      <div class="timeline">
+        <div class="job reveal">
+          <div class="job-top">
+            <div><span class="job-role">Data Analytics &amp; IT Intern</span> · <span class="job-org">Tower Extrusion LLC</span></div>
+            <div class="job-date mono">JUN 2026 — PRESENT</div>
+          </div>
+          <div class="job-loc">Wylie, TX</div>
+          <ul>
+            <li>Built automated <strong>Power BI dashboards</strong> across 5 production lines, cutting weekly manual reporting from 8 hours to <strong>5 hours</strong>.</li>
+            <li>Standardized paint review sheet data, improving reporting consistency by <strong>20%</strong> and helping production teams catch quality issues faster.</li>
+            <li>Analyzed 100+ coating thickness measurements from the Decoral line to identify process variation.</li>
+            <li>Surfaced process inefficiencies through trend analysis, supporting a <strong>~10% reduction</strong> in production defects.</li>
+          </ul>
         </div>
 
-        <h1 class="console__title">
-          Marvel Patel
-          <span class="console__subtitle">turns raw process data into decisions manufacturing teams can act on.</span>
-        </h1>
-
-        <p class="console__desc">
-          I'm a Computer Information Systems and Technology Management student who is passionate about solving problems
-          through technology, data, and innovation. I enjoy exploring new technologies, analyzing complex information,
-          and developing solutions that improve efficiency, streamline processes, and support better business decisions.
-
-          Through my experience as a Data & IT Intern at Tower Extrusions, I've gained hands-on experience working with
-          data analysis, Power BI dashboards, inventory auditing, manufacturing process improvement, and operational
-          reporting. These experiences have strengthened my analytical thinking, technical problem-solving, and ability
-          to collaborate with cross-functional teams to deliver meaningful results.
-        </p>
-
-        <div class="console__actions">
-          <a href="#log" class="btn btn--primary">View the log</a>
-          <a href="#contact" class="btn btn--ghost">Get in touch</a>
+        <div class="job reveal">
+          <div class="job-top">
+            <div><span class="job-role">Warehouse Associate</span> · <span class="job-org">Amazon</span></div>
+            <div class="job-date mono">NOV 2025 — JAN 2026</div>
+          </div>
+          <div class="job-loc">McKinney, TX</div>
+          <ul>
+            <li>Operated warehouse management systems and handheld scanners to track and verify inventory data in real time.</li>
+            <li>Troubleshot order discrepancies and improved workflow efficiency in a fast-paced, technology-driven logistics environment.</li>
+          </ul>
         </div>
-
-        <!-- Gauge readouts pulled directly from real work -->
-        <div class="gauge-panel" role="img" aria-label="Key performance improvements from Marvel's work">
-          <div class="gauge" data-target="35">
-            <svg viewBox="0 0 120 120" class="gauge__ring">
-              <circle cx="60" cy="60" r="52" class="gauge__track"></circle>
-              <circle cx="60" cy="60" r="52" class="gauge__fill" data-fill></circle>
-            </svg>
-            <div class="gauge__readout">
-              <span class="gauge__value"><span class="counter">0</span>%</span>
-              <span class="gauge__label">less manual<br>reporting effort</span>
-            </div>
-          </div>
-
-          <div class="gauge" data-target="20">
-            <svg viewBox="0 0 120 120" class="gauge__ring">
-              <circle cx="60" cy="60" r="52" class="gauge__track"></circle>
-              <circle cx="60" cy="60" r="52" class="gauge__fill" data-fill></circle>
-            </svg>
-            <div class="gauge__readout">
-              <span class="gauge__value"><span class="counter">0</span>%</span>
-              <span class="gauge__label">gain in reporting<br>consistency</span>
-            </div>
-          </div>
-
-          <div class="gauge" data-target="15">
-            <svg viewBox="0 0 120 120" class="gauge__ring">
-              <circle cx="60" cy="60" r="52" class="gauge__track"></circle>
-              <circle cx="60" cy="60" r="52" class="gauge__fill" data-fill></circle>
-            </svg>
-            <div class="gauge__readout">
-              <span class="gauge__value">10–<span class="counter">0</span>%</span>
-              <span class="gauge__label">cut in coating<br>measurement variance</span>
-            </div>
-          </div>
-
-          <div class="gauge" data-target="10">
-            <svg viewBox="0 0 120 120" class="gauge__ring">
-              <circle cx="60" cy="60" r="52" class="gauge__track"></circle>
-              <circle cx="60" cy="60" r="52" class="gauge__fill" data-fill></circle>
-            </svg>
-            <div class="gauge__readout">
-              <span class="gauge__value"><span class="counter">0</span>%</span>
-              <span class="gauge__label">fewer production<br>defects</span>
-            </div>
-          </div>
-        </div>
-        <p class="gauge-footnote">Figures from Tower Extrusion LLC, June 2026 – present. Not simulated.</p>
       </div>
     </section>
+  </div>
 
-    <!-- EXPERIENCE LOG -->
-    <section id="log" class="section">
-      <div class="section__head">
-        <span class="eyebrow">01 — Field log</span>
-        <h2>Where the data came from</h2>
+  <!-- PROJECTS -->
+  <div class="wrap">
+    <section id="projects">
+      <div class="section-head reveal">
+        <span class="index mono">§02</span>
+        <h2>Projects</h2>
+        <div class="section-rule"></div>
       </div>
 
-      <div class="log">
+      <div class="projects">
 
-        <article class="log__entry">
-          <div class="log__meta">
-            <span class="log__time">June 2026 — Present</span>
-            <span class="log__place">Tower Extrusion LLC, Wylie TX</span>
-          </div>
-          <div class="log__body">
-            <h3>DA &amp; IT Intern</h3>
-            <ul>
-              <li>Built automated Power BI dashboards using data from 5 production lines, reducing weekly manual
-                reporting from
-                8 hours to 5 hours.</li>
-              <li>Analyzed and standardized paint review sheet data, improving reporting consistency by 20% and enabling
-                production teams to identify quality issues faster.</li>
-              <li>Analyzed 100+ coating thickness measurements collected from the Decoral line to identify process
-                variation.</li>
-              <li>Identified process inefficiencies through trend analysis, supporting initiatives that reduced
-                production defects by
-                approximately 10%.
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="log__entry">
-          <div class="log__meta">
-            <span class="log__time">Nov 2025 — Jan 2026</span>
-            <span class="log__place">Amazon, McKinney TX</span>
-          </div>
-          <div class="log__body">
-            <h3>Warehouse Associate</h3>
-            <ul>
-              <li>Operated warehouse management systems and scanners to track and verify inventory data in real time.
-              </li>
-              <li>Troubleshot order discrepancies and improved workflow efficiency in a fast-paced logistics
-                environment.</li>
-            </ul>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section section--alt">
-      <div class="section__head">
-        <span class="eyebrow">02 — Builds</span>
-        <h2>Projects worth a second look</h2>
-      </div>
-
-      <div class="cards">
-        <article class="card">
-          <div class="card__tag">July 2026 · Python 3, pandas / numpy, XGBoost, Streamlit, joblib</div>
+        <article class="card reveal" tabindex="0">
+          <span class="card-tag">MACHINE LEARNING</span>
           <h3>Cricket Match Predictor</h3>
-          <p>Built an end-to-end ML pipeline predicting T20 cricket outcomes using XGBoost and logistic regression on
-            1,500+ matches and 350,000+ ball-by-ball records, engineering 15+ time-aware features with zero data
-            leakage.</p>
-          <ul class="card__facts">
-            <li>Achieved 0.94 ROC-AUC and 87% accuracy on a live, ball-by-ball win-probability model, validating
-              reliability through log-loss, Brier score, and calibration analysis across 10 probability deciles</li>
-            <li> Deployed an interactive Streamlit dashboard with 3 live-updating views and SHAP-based explainability,
-              turning a black-box model into stakeholder-ready, real-time win-probability visualizations.</li>
-          </ul>
+          <p class="card-desc">Live win-probability model for T20 cricket, trained on 1,500+ matches and 350,000+ ball-by-ball records.</p>
+          <div class="card-stack"><span>Python</span><span>XGBoost</span><span>pandas / numpy</span><span>Streamlit</span><span>SHAP</span></div>
+          <button class="card-toggle mono">Details <span class="chev">›</span></button>
+          <div class="card-more">
+            <ul>
+              <li>Engineered 15+ time-aware features with zero data leakage across ball-by-ball match states.</li>
+              <li>Achieved <strong>0.94 ROC-AUC</strong> and 87% accuracy, validated with log-loss, Brier score, and calibration analysis across 10 probability deciles.</li>
+              <li>Deployed an interactive Streamlit dashboard with 3 live-updating views and SHAP-based explainability for stakeholder-ready visualizations.</li>
+            </ul>
+          </div>
         </article>
 
-        <article class="card">
-          <div class="card__tag">Feb 2025 · Tableau, Excel</div>
+        <article class="card reveal" tabindex="0">
+          <span class="card-tag">DATA VISUALIZATION</span>
           <h3>Business Inventory Analysis</h3>
-          <p>Cleaned and transformed raw inventory data in Excel, then built an interactive Tableau storyboard covering
-            stock levels, order trends, and product performance — turning a flat dataset into a walkthrough
-            non-analysts could follow.</p>
-          <ul class="card__facts">
-            <li>Interactive Tableau dashboard + storyboard</li>
-            <li>Sorting, filtering &amp; formula-driven cleanup</li>
-            <li>Delivered operational recommendations, not just charts</li>
-          </ul>
+          <p class="card-desc">A Tableau storyboard turning raw inventory data into operational recommendations.</p>
+          <div class="card-stack"><span>Tableau</span><span>Excel</span><span>Data Extraction</span></div>
+          <button class="card-toggle mono">Details <span class="chev">›</span></button>
+          <div class="card-more">
+            <ul>
+              <li>Transformed raw datasets in Excel using sorting, filtering, and formulas to ensure accurate reporting.</li>
+              <li>Built a comprehensive Tableau storyboard to communicate insights and recommendations clearly.</li>
+              <li>Delivered visual analytics that improved understanding of inventory flow and supported data-driven decisions.</li>
+            </ul>
+          </div>
         </article>
 
-        <article class="card">
-          <div class="card__tag">Feb 2024 · Python</div>
+        <article class="card reveal" tabindex="0">
+          <span class="card-tag">SOFTWARE ENGINEERING</span>
           <h3>Battleship Game</h3>
-          <p>Turn-based Battleship built with object-oriented Python. Ship placement, hit/miss detection, win-condition
-            tracking, and player-vs-AI turn switching, backed by a 2D array board model.</p>
-          <ul class="card__facts">
-            <li>OOP structure improved modularity ~25%</li>
-            <li>2D-array board + real-time updates</li>
-            <li>Runtime logic optimized ~20%</li>
-          </ul>
+          <p class="card-desc">A fully functional turn-based Battleship game built with object-oriented Python.</p>
+          <div class="card-stack"><span>Python</span><span>OOP</span><span>2D Arrays</span></div>
+          <button class="card-toggle mono">Details <span class="chev">›</span></button>
+          <div class="card-more">
+            <ul>
+              <li>Applied OOP principles to improve code modularity and maintainability by <strong>25%</strong>.</li>
+              <li>Built game logic for ship placement validation, hit/miss detection, win tracking, and turn switching between players and AI.</li>
+              <li>Used 2D arrays to model the board and optimized real-time updates and targeting logic, improving performance by <strong>20%</strong>.</li>
+            </ul>
+          </div>
         </article>
 
       </div>
     </section>
+  </div>
 
-    <!-- SKILLS / INSTRUMENTS -->
-    <section id="instruments" class="section">
-      <div class="section__head">
-        <span class="eyebrow">03 — Instruments</span>
-        <h2>Tools on the bench</h2>
+  <!-- SKILLS -->
+  <div class="wrap">
+    <section id="skills">
+      <div class="section-head reveal">
+        <span class="index mono">§03</span>
+        <h2>Skills</h2>
+        <div class="section-rule"></div>
       </div>
 
-      <div class="instruments">
-        <div class="instrument-group">
-          <h3>Data &amp; Analysis</h3>
-          <div class="chips">
-            <span class="chip">MySQL</span>
-            <span class="chip">Query Languages</span>
-            <span class="chip">Database Design</span>
-            <span class="chip">Database Administration</span>
-            <span class="chip">Data Structures</span>
-            <span class="chip">Python</span>
-            <span class="chip">Data Analysis</span>
+      <div class="skills-grid">
+        <div class="skill-group reveal">
+          <h4>Data &amp; Databases</h4>
+          <div class="pill-row">
+            <span class="pill">MySQL</span><span class="pill">Query Languages</span><span class="pill">Database Design</span>
+            <span class="pill">Database Administration</span><span class="pill">Data Structures</span><span class="pill">Data Entry</span>
           </div>
         </div>
-
-        <div class="instrument-group">
-          <h3>Visualization &amp; Office</h3>
-          <div class="chips">
-            <span class="chip">Power BI</span>
-            <span class="chip">Tableau</span>
-            <span class="chip">Data Visualization</span>
-            <span class="chip">Excel</span>
-            <span class="chip">Word</span>
-            <span class="chip">PowerPoint</span>
-            <span class="chip">Outlook</span>
-            <span class="chip">Project Management</span>
+        <div class="skill-group reveal">
+          <h4>Analysis &amp; Visualization</h4>
+          <div class="pill-row">
+            <span class="pill">Python</span><span class="pill">Data Analysis</span><span class="pill">Tableau</span>
+            <span class="pill">Power BI</span><span class="pill">Data Visualization</span>
           </div>
         </div>
-
-        <div class="instrument-group">
-          <h3>Exposure</h3>
-          <div class="chips">
-            <span class="chip chip--muted">AWS</span>
-            <span class="chip chip--muted">C++</span>
-            <span class="chip chip--muted">Java</span>
-          </div>
-        </div>
-
-        <div class="instrument-group">
-          <h3>Certifications</h3>
-          <div class="chips">
-            <span class="chip">Database Structures &amp; Management with MySQL</span>
-            <span class="chip">Google Data Analytics Specialization</span>
-            <span class="chip">AWS Educate Cloud Computing 101</span>
+        <div class="skill-group reveal">
+          <h4>Tools &amp; Exposure</h4>
+          <div class="pill-row">
+            <span class="pill">Microsoft Office</span><span class="pill">Project Management</span>
+            <span class="pill">AWS</span><span class="pill">C++</span><span class="pill">Java</span>
           </div>
         </div>
       </div>
 
-      <div class="education">
-        <div class="education__item">
+    </section>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="wrap">
+    <section id="certifications">
+      <div class="section-head reveal">
+        <span class="index mono">§04</span>
+        <h2>Certifications</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="cert-tabs reveal">
+        <div class="cert-tab">
+          <div class="cert-tab-icon mono">01</div>
+          <div>
+            <h4>Database Structures and Management with MySQL</h4>
+            <span class="cert-tab-meta mono">DATABASES</span>
+          </div>
+        </div>
+        <div class="cert-tab">
+          <div class="cert-tab-icon mono">02</div>
+          <div>
+            <h4>Google Data Analytics Specialization</h4>
+            <span class="cert-tab-meta mono">DATA ANALYSIS</span>
+          </div>
+        </div>
+        <div class="cert-tab">
+          <div class="cert-tab-icon mono">03</div>
+          <div>
+            <h4>AWS Educate Cloud Computing 101</h4>
+            <span class="cert-tab-meta mono">CLOUD</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="wrap">
+    <section id="education">
+      <div class="section-head reveal">
+        <span class="index mono">§05</span>
+        <h2>Education</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-card reveal">
           <h3>The University of Texas at Dallas</h3>
-          <p>B.S. Computer Information Systems &amp; Technology Management · Aug 2025 – Dec 2027</p>
+          <div class="edu-org">B.S., Computer Information Systems &amp; Technology Management</div>
+          <div class="edu-meta">AUG 2025 — DEC 2027 · DALLAS, TX</div>
         </div>
-        <div class="education__item">
+        <div class="edu-card reveal">
           <h3>Collin County Community College</h3>
-          <p>Associate of Science · GPA 3.72 · May 2023 – Dec 2025</p>
-        </div>
-        <div class="education__item">
-          <h3>Shree Swaminarayan Gurukul, Plano TX</h3>
-          <p>Directed a team of 10 planning logistics for 5+ major cultural festivals · Aug 2019 – Present</p>
+          <div class="edu-org">Associate of Science · GPA 3.72</div>
+          <div class="edu-meta">MAY 2023 — DEC 2025 · MCKINNEY, TX</div>
         </div>
       </div>
     </section>
+  </div>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-      <div class="contact__inner">
-        <span class="eyebrow">04 — Sign off</span>
-        <h2>Let's talk data.</h2>
-        <p>Open to data analyst and consulting-track roles. Fastest way to reach me is email.</p>
-        <div class="contact__links">
-          <a href="mailto:marvelpatel16@gmail.com" class="btn btn--primary">marvelpatel16@gmail.com</a>
-          <a href="tel:4697205458" class="btn btn--ghost">469-720-5458</a>
-          <a href="https://www.linkedin.com/in/marvelpatel1605" target="_blank" rel="noopener"
-            class="btn btn--ghost">LinkedIn ↗</a>
+  <!-- LEADERSHIP -->
+  <div class="wrap">
+    <section id="leadership">
+      <div class="section-head reveal">
+        <span class="index mono">§06</span>
+        <h2>Leadership</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="leader-card reveal">
+        <div class="leader-mark mono">05</div>
+        <div>
+          <h3>Shree Swaminarayan Gurukul</h3>
+          <div class="job-date mono">AUG 2019 — PRESENT · PLANO, TX</div>
+          <p>Directed a team of 10 to design and implement logistical plans for over 5 major cultural festivals.</p>
         </div>
       </div>
     </section>
+  </div>
 
-  </main>
+</main>
 
-  <footer class="footer">
-    <span>© <span id="year"></span> Marvel Patel</span>
-    <span>Wylie, TX</span>
-  </footer>
+<!-- CONTACT / FOOTER -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-top reveal">
+      <h2>Let's connect.</h2>
+      <div class="contact-links">
+        <a href="mailto:marvelpatel16@gmail.com"><span class="k">→</span> marvelpatel16@gmail.com</a>
+        <a href="tel:4697205458"><span class="k">→</span> 469-720-5458</a>
+        <a href="https://linkedin.com/in/marvelpatel1605" target="_blank" rel="noopener"><span class="k">→</span> linkedin.com/in/marvelpatel1605</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
-  <script src="js/script.js"></script>
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Side dot-nav active state
+  const sideLinks = document.querySelectorAll('.side-nav a');
+  const trackedSections = ['experience','projects','skills','certifications','education','leadership','contact']
+    .map(id => document.getElementById(id)).filter(Boolean);
+  const navIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const link = document.querySelector('.side-nav a[href="#' + entry.target.id + '"]');
+      if(!link) return;
+      if(entry.isIntersecting){
+        sideLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+  trackedSections.forEach(sec => navIO.observe(sec));
+
+  // Project card expand
+  document.querySelectorAll('.card').forEach(card => {
+    const toggle = () => card.classList.toggle('open');
+    card.querySelector('.card-toggle').addEventListener('click', (e) => { e.stopPropagation(); toggle(); });
+    card.addEventListener('click', toggle);
+    card.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); } });
+  });
+</script>
+
 </body>
-
 </html>
